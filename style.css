@@ -1,0 +1,783 @@
+/* ================================================
+   GitHub Developer Explorer  –  style.css
+   Plain CSS | No variables | No framework
+   Light Mode default + Dark Mode via body.dark
+   ================================================ */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
+  color: #24292f;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+img  { display: block; max-width: 100%; }
+ul   { list-style: none; }
+a    { text-decoration: none; }
+button { cursor: pointer; }
+
+.hidden { display: none !important; }
+
+/* ================================================
+   DARK MODE  –  applied when <body> has class "dark"
+   Every dark-mode override is grouped here so it is
+   easy to read and understand.
+   ================================================ */
+
+body.dark {
+  background: #0d1117;
+  color: #e6edf3;
+}
+
+/* Header */
+body.dark .header {
+  background: #161b22;
+  border-bottom-color: #30363d;
+}
+body.dark .header-title   { color: #e6edf3; }
+body.dark .header-subtitle { color: #8b949e; }
+body.dark .gh-logo         { fill: #e6edf3; }
+
+/* Theme toggle button */
+body.dark .theme-toggle-btn {
+  background: #21262d;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+body.dark .theme-toggle-btn:hover {
+  background: #30363d;
+}
+
+/* Search box */
+body.dark .search-box {
+  background: #161b22;
+  border-color: #30363d;
+}
+body.dark .search-label { color: #8b949e; }
+body.dark .search-input {
+  background: #0d1117;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+body.dark .search-input::placeholder { color: #484f58; }
+body.dark .search-input:focus {
+  border-color: #388bfd;
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.15);
+  background: #161b22;
+}
+
+/* Profile card */
+body.dark .profile-card {
+  background: #161b22;
+  border-color: #30363d;
+}
+body.dark .profile-name     { color: #e6edf3; }
+body.dark .profile-username { color: #8b949e; }
+body.dark .profile-bio      { color: #8b949e; }
+body.dark .profile-avatar   { border-color: #30363d; }
+body.dark .profile-stats {
+  background: #21262d;
+  border-color: #30363d;
+}
+body.dark .stat-num     { color: #e6edf3; }
+body.dark .stat-lbl     { color: #8b949e; }
+body.dark .stat-divider { background: #30363d; }
+
+/* Section title */
+body.dark .section-title {
+  color: #e6edf3;
+  border-bottom-color: #21262d;
+}
+
+/* Repo card */
+body.dark .repo-card {
+  background: #161b22;
+  border-color: #30363d;
+}
+body.dark .repo-card:hover  { border-color: #388bfd; }
+body.dark .repo-name        { color: #58a6ff; }
+body.dark .repo-desc        { color: #8b949e; }
+body.dark .repo-meta-item   { color: #8b949e; }
+
+/* Language card */
+body.dark .lang-card {
+  background: #161b22;
+  border-color: #30363d;
+}
+body.dark .lang-card:hover  { background: #1c2128; }
+body.dark .lang-name        { color: #e6edf3; }
+body.dark .lang-count       { color: #8b949e; }
+
+/* Error box */
+body.dark .error-box {
+  background: #1c1010;
+  border-color: #6e2020;
+  border-left-color: #d9534f;
+}
+body.dark .error-text  { color: #f07070; }
+body.dark .error-icon  { color: #d9534f; }
+
+/* Loading */
+body.dark .spinner     { border-color: #30363d; border-top-color: #58a6ff; }
+body.dark .loading-text { color: #8b949e; }
+
+/* Footer */
+body.dark .footer {
+  background: #161b22;
+  border-top-color: #30363d;
+}
+body.dark .footer-name   { color: #e6edf3; }
+body.dark .footer-copy   { color: #8b949e; }
+body.dark .footer-link   { color: #58a6ff; }
+body.dark .footer-dot    { color: #30363d; }
+body.dark .footer-gh-logo { fill: #8b949e; }
+
+/* ================================================
+   HEADER  –  Light mode
+   ================================================ */
+.header {
+  background: #ffffff;
+  border-bottom: 2px solid #d0d7de;
+  box-shadow: 0 1px 6px rgba(36, 41, 47, 0.06);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Real GitHub Octocat – black in light mode */
+.gh-logo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  fill: #24292f;
+  transition: fill 0.3s;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #24292f;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.8rem;
+  color: #57606a;
+  line-height: 1.3;
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: #f6f8fa;
+  border: 1.5px solid #d0d7de;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #24292f;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: #e8f0fe;
+  border-color: #0969da;
+  color: #0969da;
+  transform: translateY(-1px);
+}
+
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-label {
+  font-size: 0.8rem;
+}
+
+/* ================================================
+   MAIN
+   ================================================ */
+.main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 24px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ================================================
+   SEARCH SECTION
+   ================================================ */
+.search-box {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(36, 41, 47, 0.06);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.search-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  margin-bottom: 10px;
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  color: #24292f;
+  background: #f6f8fa;
+  border: 1.5px solid #d0d7de;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+.search-input::placeholder { color: #b0b8c1; }
+
+.search-input:focus {
+  border-color: #0969da;
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.12);
+  background: #ffffff;
+}
+
+.search-btn {
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2da44e;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 136, 56, 0.3);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ================================================
+   LOADING SECTION
+   ================================================ */
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  border: 4px solid #d0d7de;
+  border-top-color: #2da44e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  transition: border-color 0.3s;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 0.87rem;
+  color: #57606a;
+}
+
+/* ================================================
+   ERROR SECTION
+   ================================================ */
+.error-section {
+  display: flex;
+  justify-content: center;
+}
+
+.error-box {
+  background: #fff8f8;
+  border: 1px solid #f5c6c6;
+  border-left: 4px solid #d9534f;
+  border-radius: 8px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 540px;
+  width: 100%;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.error-icon {
+  font-size: 1.4rem;
+  color: #d9534f;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  color: #a94442;
+  font-weight: 500;
+}
+
+/* ================================================
+   RESULTS WRAPPER
+   ================================================ */
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ================================================
+   PROFILE SECTION
+   ================================================ */
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  box-shadow: 0 1px 4px rgba(36, 41, 47, 0.06);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+}
+
+.profile-card:hover {
+  box-shadow: 0 6px 20px rgba(36, 41, 47, 0.1);
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #d0d7de;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f6f8fa;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.04);
+}
+
+.profile-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #24292f;
+  transition: color 0.3s;
+}
+
+.profile-username {
+  font-size: 0.92rem;
+  color: #57606a;
+  transition: color 0.3s;
+}
+
+.profile-bio {
+  font-size: 0.88rem;
+  color: #57606a;
+  line-height: 1.55;
+  transition: color 0.3s;
+}
+
+.profile-stats {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 10px 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  gap: 2px;
+}
+
+.stat-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #24292f;
+  transition: color 0.3s;
+}
+
+.stat-lbl {
+  font-size: 0.7rem;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 30px;
+  background: #d0d7de;
+  transition: background 0.3s;
+}
+
+/* ================================================
+   SECTION TITLE
+   ================================================ */
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #24292f;
+  border-bottom: 2px solid #d6f0dc;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+/* ================================================
+   REPOSITORY SECTION
+   ================================================ */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+  gap: 16px;
+}
+
+.repo-card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 1px 3px rgba(36, 41, 47, 0.05);
+  transition: background 0.3s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.repo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(36, 41, 47, 0.12);
+  border-color: #0969da;
+}
+
+.repo-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0969da;
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+.repo-card:hover .repo-name {
+  color: #0550ae;
+}
+
+.repo-desc {
+  font-size: 0.81rem;
+  color: #57606a;
+  line-height: 1.55;
+  flex: 1;
+  transition: color 0.3s;
+}
+
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.repo-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.77rem;
+  color: #57606a;
+  transition: color 0.3s;
+}
+
+.lang-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2da44e;
+  flex-shrink: 0;
+}
+
+/* star / fork icons */
+.icon-star::before { content: "\2605"; color: #d4a017; }
+.icon-fork::before { content: "\21C6"; color: #57606a; }
+
+/* ================================================
+   LANGUAGE SECTION
+   ================================================ */
+.lang-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.lang-card {
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(36, 41, 47, 0.05);
+  transition: background 0.3s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.lang-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(36, 41, 47, 0.1);
+  border-color: #2da44e;
+  background: #f0faf3;
+}
+
+.lang-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Language circle colour pool */
+.lc-0  { background: #c9a800; }
+.lc-1  { background: #2b7489; }
+.lc-2  { background: #3572a5; }
+.lc-3  { background: #b07219; }
+.lc-4  { background: #e34c26; }
+.lc-5  { background: #563d7c; }
+.lc-6  { background: #00add8; }
+.lc-7  { background: #178600; }
+.lc-8  { background: #f05138; }
+.lc-9  { background: #41b883; }
+.lc-10 { background: #54aeff; }
+
+.lang-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #24292f;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.lang-count {
+  font-size: 0.75rem;
+  color: #57606a;
+  transition: color 0.3s;
+}
+
+/* no-data helper text */
+.no-data-text {
+  color: #57606a;
+  font-size: 0.88rem;
+  padding: 10px 0;
+}
+
+/* ================================================
+   FOOTER  –  Light mode
+   ================================================ */
+.footer {
+  background: #ffffff;
+  border-top: 2px solid #d0d7de;
+  box-shadow: 0 -1px 4px rgba(36, 41, 47, 0.05);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Left brand */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-gh-logo {
+  width: 20px;
+  height: 20px;
+  fill: #57606a;
+  flex-shrink: 0;
+  transition: fill 0.3s;
+}
+
+.footer-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #24292f;
+  transition: color 0.3s;
+}
+
+/* Center links */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link {
+  font-size: 0.8rem;
+  color: #0969da;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #0550ae;
+  text-decoration: underline;
+}
+
+.footer-dot {
+  color: #d0d7de;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+/* Right copyright */
+.footer-copy {
+  font-size: 0.76rem;
+  color: #57606a;
+  transition: color 0.3s;
+}
+
+/* ================================================
+   RESPONSIVE  –  Tablet  (max-width: 768px)
+   ================================================ */
+@media (max-width: 768px) {
+  .main { padding: 22px 16px 40px; }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-stats {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .repo-grid { grid-template-columns: 1fr; }
+
+  .lang-grid { justify-content: center; }
+
+  .search-row { flex-direction: column; }
+
+  .search-btn { width: 100%; }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ================================================
+   RESPONSIVE  –  Mobile  (max-width: 480px)
+   ================================================ */
+@media (max-width: 480px) {
+  .header-inner  { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .header-title  { font-size: 1.15rem; }
+  .gh-logo       { width: 28px; height: 28px; }
+  .theme-toggle-btn { align-self: flex-start; }
+
+  .profile-avatar { width: 88px; height: 88px; }
+  .stat-item      { padding: 0 12px; }
+}
