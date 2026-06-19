@@ -1,0 +1,3 @@
+# Environment / secrets – never commit these
+.env
+config.js
